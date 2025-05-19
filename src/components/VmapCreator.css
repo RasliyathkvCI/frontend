@@ -1,0 +1,65 @@
+.vmap-creator-container {
+  margin-top: 32px;
+  border: 1px solid #eee;
+  padding: 16px;
+  background: #fafbfc;
+  border-radius: 8px;
+}
+
+.vmap-creator-container h4 {
+  margin-bottom: 12px;
+}
+
+.vmap-creator-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.vmap-creator-table th,
+.vmap-creator-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.vmap-creator-table th {
+  background: #f0f0f0;
+}
+
+.vmap-creator-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.vmap-creator-btn {
+  padding: 6px 14px;
+  margin: 0 4px;
+  border: none;
+  border-radius: 4px;
+  background: #1976d2;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.vmap-creator-btn:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.vmap-creator-btn-remove {
+  background: #e53935;
+}
+
+.vmap-creator-btn-add {
+  background: #43a047;
+}
+
+.vmap-creator-list {
+  list-style: none;
+  padding: 0;
+}
+
+.vmap-creator-list li {
+  margin-bottom: 6px;
+}
