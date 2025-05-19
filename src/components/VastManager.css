@@ -1,0 +1,171 @@
+/* Container */
+.vast-container {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 24px 18px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  box-sizing: border-box;
+}
+
+/* Form Row */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+  align-items: flex-end;
+}
+
+.form-row select,
+.form-row input[type="text"] {
+  flex: 1 1 180px;
+  min-width: 160px;
+  padding: 10px 12px;
+  border: 1px solid #cfd8dc;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #f8fafb;
+  transition: border 0.2s;
+}
+
+.form-row select:focus,
+.form-row input[type="text"]:focus {
+  border-color: #1976d2;
+  outline: none;
+  background: #fff;
+}
+
+.form-row button {
+  padding: 10px 22px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 8px;
+}
+
+.form-row button:hover,
+.vast-table button:hover {
+  background: #125ea2;
+}
+
+/* Table */
+.vast-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 12px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  font-size: 16px;
+  table-layout: auto;
+}
+
+.vast-table th, .vast-table td {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.vast-table th {
+  background: #f4f7fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.vast-table tr:last-child td {
+  border-bottom: none;
+}
+
+.vast-table a {
+  color: #1976d2;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+
+.vast-table a:hover {
+  text-decoration: underline;
+}
+
+.vast-table button {
+  padding: 6px 14px;
+  margin: 0 2px;
+  border: none;
+  border-radius: 4px;
+  background: #e53935;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.vast-table button:first-child {
+  background: #1976d2;
+}
+
+.vast-table button:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+}
+/* Add to VastManager.css */
+
+.vast-table .actions-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.vast-table .action-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #fff;
+  outline: none;
+  display: inline-block;
+}
+
+.vast-table .action-btn.edit {
+  background: #1976d2;
+}
+
+.vast-table .action-btn.edit:hover {
+  background: #125ea2;
+}
+
+.vast-table .action-btn.delete {
+  background: #e53935;
+}
+
+.vast-table .action-btn.delete:hover {
+  background: #b71c1c;
+}
+/* Responsive */
+@media (max-width: 700px) {
+  .vast-container {
+    padding: 10px 2vw;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .vast-table th, .vast-table td {
+    padding: 8px 4px;
+    font-size: 15px;
+  }
+  .form-row button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
