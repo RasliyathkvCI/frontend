@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./VastManager.css"; // Import your CSS
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const VastManager = () => {
   const [editId, setEditId] = useState(null);
@@ -15,7 +16,7 @@ const VastManager = () => {
   // Fetch VAST entries
   const fetchVasts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/vast/");
+      const res = await axios.get(`${API_BASE_URL}/api/vast/`);
       setVastAds(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Error fetching VASTs:", err);
@@ -51,13 +52,13 @@ const VastManager = () => {
       let response;
       if (editId) {
         response = await axios.put(
-          `http://localhost:5000/api/vast/${editId}`,
+          `${API_BASE_URL}/api/vast/${editId}`,
           formData
         );
         await fetchVasts();
       } else {
         response = await axios.post(
-          "http://localhost:5000/api/vast/create",
+          `${API_BASE_URL}/api/vast/create`,
           formData
         );
         await fetchVasts();
@@ -86,7 +87,7 @@ const VastManager = () => {
   // Delete entry
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/vast/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/vast/${id}`);
       fetchVasts();
     } catch (err) {
       console.error("Error deleting VAST:", err);

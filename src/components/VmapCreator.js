@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./VmapCreator.css";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const timeOffsetOptions = [
   { label: "Start (Pre-roll)", value: "start" },
@@ -17,7 +18,7 @@ const VmapCreator = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/vast/")
+      .get(`${API_BASE_URL}/api/vast/`)
       .then((res) => setVastFiles(Array.isArray(res.data) ? res.data : []));
   }, []);
 
@@ -48,7 +49,7 @@ const VmapCreator = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-       const res = await axios.post("http://localhost:5000/api/vmap-config/create", {
+       const res = await axios.post(`${API_BASE_URL}/api/vmap-config/create`, {
         vastFiles: selected,
       });
       setSelected([]);
@@ -64,7 +65,7 @@ const VmapCreator = () => {
 
       // // Fetch all VMAP config links after creation
       // const linksRes = await axios.get(
-      //   "http://localhost:5000/api/vmap-config/links/all"
+      //   `${API_BASE_URL}/api/vmap-config/links/all`
       // );
       // // Do something with linksRes.data if needed
       // console.log("All VMAP links:", linksRes.data);
