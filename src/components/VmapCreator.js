@@ -35,7 +35,7 @@ const VmapCreator = () => {
       ...prev,
       {
         adId: ad.adId || ad._id,
-        vastLink: ad.vastLink,
+        xmlLink: ad.xmlLink,
         type: ad.type,
         timeOffset: ad.timeOffset,
       },
@@ -94,11 +94,11 @@ const VmapCreator = () => {
                 <li key={ad._id || ad.adId}>
                   {ad.type} -{" "}
                   <a
-                    href={ad.vastLink}
+                    href={ad.xmlLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {ad.vastLink}
+                    {ad.xmlLink}
                   </a>
                   <button
                     className="vmap-creator-btn vmap-creator-btn-add"
@@ -128,11 +128,11 @@ const VmapCreator = () => {
                     <td>{ad.timeOffset}</td>
                     <td>
                       <a
-                        href={ad.vastLink}
+                        href={ad.xmlLink}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {ad.vastLink}
+                        {ad.xmlLink}
                       </a>
                     </td>
                     <td>
