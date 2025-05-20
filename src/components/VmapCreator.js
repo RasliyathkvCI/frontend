@@ -58,7 +58,7 @@ const VmapCreator = () => {
       // Add the new VMAP link to the top of the list
       const newVmap = {
         _id: res.data.vmapId,
-        link: res.data.vastLink,
+        link: res.data.xmlLink,
         fileName: res.data.fileName,
       };
       setVmapLinks((prev) => [newVmap, ...prev]);
