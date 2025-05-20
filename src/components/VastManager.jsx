@@ -16,7 +16,7 @@ const VastManager = () => {
   // Fetch VAST entries
   const fetchVasts = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/vast/`);
+      const res = await axios.get(`${API_BASE_URL}/api/vast-schedule/all`);
       setVastAds(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Error fetching VASTs:", err);
@@ -52,13 +52,13 @@ const VastManager = () => {
       let response;
       if (editId) {
         response = await axios.put(
-          `${API_BASE_URL}/api/vast/${editId}`,
+          `${API_BASE_URL}/api/vast-schedule/${editId}`,
           formData
         );
         await fetchVasts();
       } else {
         response = await axios.post(
-          `${API_BASE_URL}/api/vast/create`,
+          `${API_BASE_URL}/api/vast-schedule/create`,
           formData
         );
         await fetchVasts();
@@ -87,7 +87,7 @@ const VastManager = () => {
   // Delete entry
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API_BASE_URL}/api/vast/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/vast-schedule/${id}`);
       fetchVasts();
     } catch (err) {
       console.error("Error deleting VAST:", err);
@@ -162,7 +162,7 @@ const VastManager = () => {
           onChange={handleChange}
         />
 
-        <button onClick={handleSubmitVast}>Create VAST</button>
+        <button onClick={handleSubmitVast}>{editId ? "Update VAST" : "Create VAST"}</button>
       </div>
 
       <h3>Created VAST Ads</h3>
@@ -191,7 +191,7 @@ const VastManager = () => {
               </td>
               <td className="actions-cell">
                 <a
-                  href={ad.xmlLink}
+                  href={ad.vastLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="action-btn edit"

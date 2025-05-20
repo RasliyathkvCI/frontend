@@ -18,7 +18,7 @@ const VmapCreator = () => {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/api/vast/`)
+      .get(`${API_BASE_URL}/api/vast-schedule/all`)
       .then((res) => setVastFiles(Array.isArray(res.data) ? res.data : []));
   }, []);
 
@@ -35,7 +35,7 @@ const VmapCreator = () => {
       ...prev,
       {
         adId: ad.adId || ad._id,
-        xmlLink: ad.xmlLink,
+        vastLink: ad.vastLink,
         type: ad.type,
         timeOffset: ad.timeOffset,
       },
@@ -58,7 +58,7 @@ const VmapCreator = () => {
       // Add the new VMAP link to the top of the list
       const newVmap = {
         _id: res.data.vmapId,
-        link: res.data.xmlLink,
+        link: res.data.vastLink,
         fileName: res.data.fileName,
       };
       setVmapLinks((prev) => [newVmap, ...prev]);
@@ -94,11 +94,11 @@ const VmapCreator = () => {
                 <li key={ad._id || ad.adId}>
                   {ad.type} -{" "}
                   <a
-                    href={ad.xmlLink}
+                    href={ad.vastLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {ad.xmlLink}
+                    {ad.vastLink}
                   </a>
                   <button
                     className="vmap-creator-btn vmap-creator-btn-add"
@@ -128,11 +128,11 @@ const VmapCreator = () => {
                     <td>{ad.timeOffset}</td>
                     <td>
                       <a
-                        href={ad.xmlLink}
+                        href={ad.vastLink}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {ad.xmlLink}
+                        {ad.vastLink}
                       </a>
                     </td>
                     <td>
